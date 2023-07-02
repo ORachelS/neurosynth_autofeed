@@ -4,11 +4,12 @@ import matplotlib.pyplot as plt
 from nilearn.input_data import NiftiSpheresMasker
 from nilearn.datasets import fetch_icbm152_2009
 
-def plot_anatomical_voi(voi_coords):
+def plot_anatomical_voi(list(voi_coords)):
+
     '''
-Plots the VOIs on the MNI template (anatomical scan)
-Input: x,y,z coordinates of the VOIs
-Output: plot of the MNI brain template with the VOI
+    Plots the VOIs on the MNI template (anatomical scan)
+    Input: x,y,z coordinates of the VOIs
+    Output: plot of the MNI brain template with the VOI
     '''
 
     # Load MNI template from Nilearn datasets
@@ -32,10 +33,10 @@ Output: plot of the MNI brain template with the VOI
 
     # Add markers for the VOI
     for coord in voi_coords:
-        display.add_markers([coord], marker_color='g', marker_size=100)
+        display.add_markers(coord, marker_color='b', marker_size=100)
 
     return plt.show()
 
 if __name__ == '__main__':
-    voi_coords = [[-40, -28, -12], [-40, -28, 0], [-40, -28, 12]]
+    voi_coords = [[-45, 27, 36], [0, 30, 20], [-6, 48, -18]]
     plot_anatomical_voi(voi_coords) 
